@@ -1,0 +1,34 @@
+<!-- docs: https://material.angular.io/components/expansion/overview -->
+<mat-accordion displayMode="flat" multi="false">
+  <mat-expansion-panel
+    #panel
+    *ngFor="let plan of purchasePlans"
+    [id]="plan.idPrefix + 'panel'"
+  >
+    <mat-expansion-panel-header
+      expandedHeight="50px"
+      collapsedHeight="50px"
+      class="active-plan"
+      [ngClass]="{ 'active-plan': panel.expanded }"
+    >
+      <mat-panel-title>
+        <h4>{{ plan.title }}</h4>
+        <mat-divider [vertical]="true"></mat-divider>
+        <mat-icon class="info-icon" color="primary" fontIcon="info"></mat-icon>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <!-- 
+  TIL: In angular, template reference variables should be unique per view. Views can be two types View and EmbeddedView.
+  sources:
+  - https://stackoverflow.com/a/44441164/7542688
+  - https://stackoverflow.com/a/50080838/7542688
+    -->
+    <app-deal-option
+      #deal
+      [taxId]="plan.taxId"
+      [downPayment]="plan.downPayment"
+      [isCash]="!!plan?.isCash"
+      (taxId)="onTaxIdChange(deal.taxId)"
+    ></app-deal-option>
+  </mat-expansion-panel>
+</mat-accordion>

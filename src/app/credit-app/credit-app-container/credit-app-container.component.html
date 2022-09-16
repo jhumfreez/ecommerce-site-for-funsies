@@ -1,0 +1,30 @@
+<!-- 
+  originally: forms inside expander
+  consider: mat stepper
+  docs: https://material.angular.io/components/stepper/overview#stepper-vertical
+-->
+<mat-accordion displayMode="flat" multi="true">
+  <!-- Applicant Personal Info -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Personal Info</mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-form-section></app-form-section>
+  </mat-expansion-panel>
+  <!-- Residence Info -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Residence Info</mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-form-section></app-form-section>
+  </mat-expansion-panel>
+  <!-- Work History-->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Work History</mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-form-section></app-form-section>
+  </mat-expansion-panel>
+  <!-- TODO: Add Co-Applicant toggle and form -->
+</mat-accordion>
+<p>credit-app-container works!</p>

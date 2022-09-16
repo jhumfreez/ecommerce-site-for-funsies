@@ -1,0 +1,47 @@
+<header>
+  <!-- docs: 
+    https://material.angular.io/components/toolbar
+    https://material.angular.io/components/badge/overview
+    https://material.angular.io/components/menu/examples
+   -->
+  <!-- <div class="header-content">
+    <h2>{{sellerName}}</h2>
+  </div> -->
+  <mat-toolbar>
+    <!-- TODO: Show only on mobile -->
+    <button mat-icon-button aria-label="menu" [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!-- Dropdown Menu -->
+    <mat-menu #menu="matMenu">
+      <button
+        mat-menu-item
+        class="example-icon favorite-icon"
+        aria-label="like"
+      >
+        <mat-icon>favorite</mat-icon>
+        <span>Something</span>
+      </button>
+      <button mat-menu-item class="example-icon" aria-label="share">
+        <mat-icon>share</mat-icon>
+        <span>Something</span>
+      </button>
+    </mat-menu>
+    <!-- Seller Name -->
+    <span>{{ sellerName }} | Checkout</span>
+    <span class="header-spacer"></span>
+    <!-- Desktop View Buttons -->
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="like"
+    >
+      <mat-icon>email</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="share">
+      <mat-icon>phone</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>
+
+<ng-template> </ng-template>

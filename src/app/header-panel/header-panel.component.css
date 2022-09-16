@@ -1,0 +1,11 @@
+/* TODO: use theme */
+/* header {
+  background-color: lightgray;
+} */
+
+/* .header-content {
+  padding: 10px;
+} */
+.header-spacer {
+  flex: 1 1 auto;
+}

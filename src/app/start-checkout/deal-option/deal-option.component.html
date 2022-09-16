@@ -1,0 +1,33 @@
+<form [formGroup]="myForm">
+  <mat-form-field>
+    <mat-label for="taxId">Tax ID:</mat-label>
+    <input id="taxId" matInput formControlName="taxId" />
+    <mat-hint>Ex. XXX.XXX.XXX-XX</mat-hint>
+    <mat-error *ngIf="myForm.get('taxId').errors && myForm.get('taxId').touched"
+      >Error</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field *ngIf="!isCash">
+    <mat-label for="downPayment">Down Payment:</mat-label>
+    <input id="downPayment" matInput formControlName="downPayment" />
+    <mat-hint>Ex. 123</mat-hint>
+    <mat-error
+      *ngIf="
+        myForm.get('downPayment').errors && myForm.get('downPayment').touched
+      "
+      >Error</mat-error
+    >
+  </mat-form-field>
+</form>
+<button
+  aria-label="autofill"
+  title="Autofill"
+  mat-icon-button
+  color="accent"
+  (click)="autofill()"
+>
+  <mat-icon
+    style="font-size:30px;width:fit-content"
+    fontIcon="double_arrow"
+  ></mat-icon>
+</button>

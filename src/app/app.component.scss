@@ -1,0 +1,34 @@
+p {
+  font-family: Lato;
+}
+
+// Derived from bootstrap breakpoints: https://getbootstrap.com/docs/5.0/layout/breakpoints/
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+/* CSS Grid snippets: https://css-tricks.com/snippets/css/complete-guide-grid/ */
+.step-container {
+  display: grid;
+  column-gap: 10px;
+  row-gap: 0;
+  margin: 10px;
+  grid-template-columns: auto 35%;
+  @media (max-width: $sm) {
+    grid-template-columns: 100%;
+  }
+  @media (min-width: $lg) {
+    grid-template-columns: auto 300px;
+  }
+}
+
+.step-content {
+  margin: 10px;
+}
+
+app-price-summary {
+  margin: 10px;
+}

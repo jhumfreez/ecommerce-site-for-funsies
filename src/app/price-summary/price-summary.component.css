@@ -1,0 +1,24 @@
+.price-summary {
+  /* margin: 10px; */
+  /* TODO: use theme */
+  border: solid 2px gray;
+  background-color: lightgray;
+}
+
+.line-label {
+  font-weight: 700;
+  padding-right: 20px;
+}
+
+.line-value {
+  position: absolute;
+  right: 0;
+}
+
+mat-list {
+  margin: 10px 10px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
