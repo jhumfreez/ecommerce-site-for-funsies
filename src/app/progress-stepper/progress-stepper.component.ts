@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';;
-import { StepperService } from '../shared/services/stepper/stepper.service';
+import { StepperSelectionEvent } from '@angular/cdk/stepper';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatStepper } from '@angular/material/stepper';
+import { Router } from '@angular/router';
+import { BUY_ROUTE_TASK_MAP } from '../app.routing.module';
+import { TaskService } from '../shared/services/stepper/stepper.service';
+import { TaskStatus, Task } from '../shared/types/view-models/step.model';
+
+// TODO: Finish inserting https://stackblitz.com/edit/angular-ivy-d6ztjj
 
 @Component({
   selector: 'app-progress-stepper',
@@ -7,18 +14,23 @@ import { StepperService } from '../shared/services/stepper/stepper.service';
   styleUrls: ['./progress-stepper.component.scss'],
 })
 export class ProgressStepperComponent implements OnInit {
+  @Input()
+  isLoading = false;
+
+  @ViewChild('stepper')
+  stepper: MatStepper;
+
   isLinear = false;
   isLocked = false;
-  // Note: Forms can inform stepper of incomplete steps
-  // tempForm = new FormGroup({
-  //   noop: new FormControl(''),
-  // });
-  // Note: Stepper can provide info about the step (getSteps)
-  $steps = this.stepperService.steps;
-  // $stepperOrientation: Observable<StepperOrientation>;
+
+  @Input() steps: Task[] = [];
+
+  readonly taskStatus = TaskStatus;
+  route_task_map = BUY_ROUTE_TASK_MAP;
 
   constructor(
-    private stepperService: StepperService,
+    private stepperService: TaskService,
+    // private router: Router,
     // breakpointObserver: BreakpointObserver
   ) {
     // Note: puts stepper in vertical orienation 
@@ -28,4 +40,14 @@ export class ProgressStepperComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  selectionChanged(event: StepperSelectionEvent) {
+    const routeSegment = BUY_ROUTE_TASK_MAP.get(event.selectedIndex);
+    this.stepperService.navigateSteps(
+      event.previouslySelectedIndex,
+      event.selectedIndex
+    );
+    // FIXME: after addressing router migration
+    // this.router.navigate(['/' + routeSegment]);
+  }
 }
