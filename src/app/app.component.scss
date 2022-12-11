@@ -12,6 +12,7 @@ $xxl: 1400px;
 
 /* CSS Grid snippets: https://css-tricks.com/snippets/css/complete-guide-grid/ */
 .step-container {
+  // min-height: 100vh; // Force footer gutter
   display: grid;
   column-gap: 10px;
   row-gap: 0;
